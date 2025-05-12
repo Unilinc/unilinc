@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/project/css/signup.css">
+    <link rel="icon" type="image/ico" href="/project/images/icon.JPG">
+    <link rel="manifest" href="/project/manifest.json" />
+</head>
+<body>    
+    <div id="brand">
+    <a href="home.html">
+        <img src="/project/images/my-brand.JPG" alt="brand" width="185px" height="45px"/>
+    </a>
+</div>
+<div class="Webcontainer">
+        <div class="form_box">
+            <span id="signup-text">Sign Up</span>
+            <div class="select_form">
+                <div class="signup_form_bar" onclick="toggleForm('lecturer_signup_form')">
+                    <p id="signup_form_bar_text">Lecturer</p>
+                </div>
+                <div class="signup_form_bar" onclick="toggleForm('student_signup_form')">
+                    <p id="signup_form_bar_text">Student</p>
+                </div>
+            </div>
+
+            <form id="choose_status">
+                <p><b>Are you a lecturer or a student?</b></p>
+            </form>
+
+            <form id="lecturer_signup_form" method="post" action="/project/signup/lecturer/lecturer_signup.php">
+                <input type="text" name="Lname" id="Lname" placeholder="Enter full name" required>
+                <input type="number" name="phone_no" id="lecturer_phone_no" placeholder="Enter phone number" required>
+                <input type="text" name="email" id="lecturer_email" placeholder="Enter email address" required>
+                <select id="faculty" name="faculty" onchange="updateDepartment()">
+                    <option value="" disabled selected hidden>--Faculty--</option>
+                    <option value="SAAT">SAAT</option>
+                    <option value="SBMS">SBMS</option>
+                    <option value="SEET">SEET</option>
+                    <option value="SESET">SESET</option>
+                    <option value="SOBS">SOBS</option>
+                    <option value="SOES">SOES</option>
+                    <option value="SOHT">SOHT</option>
+                    <option value="SOPS">SOPS</option>
+                    <option value="SCIT">SCIT</option>
+                    <option value="SLIT">SLIT</option>
+                </select>
+                <select id="department" name="department">
+                    <option value="" disabled selected hidden>--Department--</option>
+                </select>
+                <input type="password" name="password" id="password" placeholder="Enter password" autocomplete="on" required>
+                <div id="toggleButton" class="toggle" onclick="togglePassword()">Show</div>
+                <ul id="validation-message">
+                    <li id="length" class="invalid">Minimum length of 8 characters</li>
+                    <li id="uppercase" class="invalid">At least one uppercase letter</li>
+                    <li id="lowercase" class="invalid">At least one lowercase letter</li>
+                    <li id="number" class="invalid">At least one number</li>
+                    <li id="special" class="invalid">At least one special character</li>
+                </ul>
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <form id="student_signup_form" method="post" action="/project/signup/student/student_signup.php" style="display: none;">
+                <input type="text" name="Sname" id="Sname" placeholder="Student Full Name" required> 
+                <input type="number" name="reg_no" id="reg_no" placeholder="Student Registration Number" required>
+                <input type="text" name="email" id="student_email" placeholder="Student Email Address" required>
+                <input type="number" name="phone_no" id="student_phone_no" placeholder="Student Phone Number" required>
+                <select id="fac" name="fac" onchange="updateDept()">
+                    <option value="" disabled selected hidden>--Faculty--</option>
+                    <option value="SAAT">SAAT</option>
+                    <option value="SBMS">SBMS</option>
+                    <option value="SEET">SEET</option>
+                    <option value="SESET">SESET</option>
+                    <option value="SOBS">SOBS</option>
+                    <option value="SOES">SOES</option>
+                    <option value="SOHT">SOHT</option>
+                    <option value="SOPS">SOPS</option>
+                    <option value="SCIT">SCIT</option>
+                    <option value="SLIT">SLIT</option>
+                </select>
+                <select id="dept" name="dept" onchange="updateLvl()">
+                    <option value="" disabled selected hidden>--Department--</option>
+                </select>
+                <input type="text" id="department_short" name="dept_short" placeholder="Dept Code" readonly>
+
+                <select id="level" name="level">
+                    <option value="" disabled selected hidden>--Level--</option>
+                </select>
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p id="link-to-login">Already own a profile?&nbsp;<b><a style="text-decoration: none;" href="login.html">Log in!</a></b></p>
+        </div>
+    </div>
+
+    <div id="popup" style="display: none; position: fixed; top: 10%; left: 50%; transform: translateX(-50%); background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; border-radius: 8px; text-align: center;">
+        <p id="popup-message" style="margin: 0;"></p>
+    </div>
+    
+</body>
+
+<script type="text/javascript" src="/project/javascript/signup.js"></script>
+<script type="text/javascript" src="/project/javascript/student_info.js"></script>
+<script type="text/javascript" src="/project/javascript/lecturer_info.js"></script>
+<script type="text/javascript" src="/project/javascript/validate_form.js"></script>
+
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+  
+
+</html>

@@ -1,0 +1,568 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+html::-webkit-scrollbar {
+    height: 2px;
+    width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #ffffff; /* Background color of the scrollbar track */
+    border-radius: 2px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(0, 146, 63); /* Color of the scrollbar handle */
+    border-radius: 2px; /* Rounds the scrollbar handle */
+}
+
+html::-webkit-scrollbar-button {
+    display: none; /* Hides the scrollbar arrows */
+}
+
+body {
+    margin: auto;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    transition: opacity 0.3s ease;
+}
+
+#logo {
+    width: 50px; 
+    margin-bottom: 0px;
+}
+
+#loader-bar {
+    width: 8%; 
+    height: 5px;
+    background: rgb(255, 255, 255); 
+    position: relative;
+    overflow: hidden;
+}
+
+#loader-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background: green; 
+    animation: backAndForth 2s infinite ease-in-out;
+}
+
+@keyframes backAndForth {
+    0% {
+        left: -10%;
+    }
+    50% {
+        left: 90%; 
+    }
+    100% {
+        left: -10%; 
+    }
+}
+
+.Webcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    width: 100%; 
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+    position: fixed;
+    top: 0;
+    background-color: rgb(232, 233, 233);
+    width: 100%;
+    height: auto;
+    z-index: 99;
+}
+
+#navbar_img {
+    display: flex; 
+    align-items: center;
+}
+
+#navbar_img img {
+    height: 42px;
+    width: auto;
+    margin-left: 20%;
+}
+
+#nav-menu {
+    display: flex;
+    align-items: center; 
+    margin-right: 10%;
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#menu-options {
+    position: absolute;
+    right: 22px;
+    top: 50px; 
+    height: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 180px;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+    transform: translateX(110%); 
+    transition: transform 0.3s ease; 
+}
+
+#menu-options a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#menu-options a:hover {
+    background-color: #f0f0f0;
+}
+
+#menu-options a:last-child {
+    border-bottom: none;
+}
+
+.blurred {
+    filter: blur(3px); 
+    pointer-events: none; 
+}
+
+.form_box{
+    width: auto;
+    height: auto;
+    padding: 24px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: rgb(239, 238, 238) 0px 0px 1px 2px;
+}
+
+.profile_head {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 12px 0px 36px 12px;
+    text-align: left;
+}
+
+#signup_form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    text-align: left;
+}
+
+input[type=text] {
+    width: 300px;
+    height: 30px;
+    font-family: Segoe UI;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #efefef;
+    color: rgb(148, 148, 148);
+    cursor: text;
+    font-weight: 600;
+    padding: 5px;
+    margin: 2px 0px 18px 0px;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+}
+
+.update {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#update_profile {
+    background-color: rgb(0, 146, 63);
+    color: white;
+    width: 30%;
+    padding: 8px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    cursor: pointer;
+    border: none;
+    font-family: Segoe UI Semibold;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#update_profile:hover {
+    background-color: rgb(1, 110, 48);
+    color: white;
+    outline: rgb(1, 110, 48) 2px solid;
+    outline-offset: 2px;
+    transition: outline 0.3s;
+}
+
+.modal {
+    position: absolute;
+    margin: auto;
+    height: auto;
+    padding: 30px;
+    width: 75%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: none;
+    opacity: 0;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    transition: opacity 0.3s ease; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+.animate-bounce {
+    animation: bounce-in 0.6s ease;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-bounce-out {
+    animation: bounce-out 0.6s ease;
+}
+
+@keyframes bounce-out {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+.success-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: 1px solid rgb(0, 146, 63);
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    animation: fade-in-out 3s ease;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.error-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: 1px solid rgb(0, 146, 63);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    animation: fade-in-out 3s ease;
+}
+
+/* Fade-in and fade-out keyframes for the error message */
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#student_profile_info{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+#update_container, #update_level_container {
+    width: 85%;
+    height: 30px;
+    font-family: Segoe UI;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #efefef;
+    color: rgb(148, 148, 148);
+    cursor: text;
+    font-weight: 600;
+    padding: 5px;
+    margin: 2px 0px 18px 0px;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+option {
+    background-color: #ffffff;
+    color: rgb(0, 146, 63);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.styled-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(0, 146, 63);
+    border-radius: 4px;
+    background-color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.styled-checkbox.checked {
+    background-color: rgb(0, 146, 63);
+    border-color: rgb(0, 146, 63);
+}
+
+.styled-checkbox.checked::after {
+    content:normal;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.checkbox-container.hidden {
+    opacity: 0;
+    transform: translateY(-10px); 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+#manual_add_wrapper {
+    margin-bottom: 12px;
+}
+
+.save_update {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#save_update_profile {
+    background-color: rgb(0, 146, 63);
+    color: white;
+    width: fit-content;
+    padding: 8px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    cursor: pointer;
+    border: none;
+    font-family: Segoe UI Semibold;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#save_update_profile:hover {
+    background-color: rgb(1, 110, 48);
+    color: white;
+    outline: rgb(1, 110, 48) 2px solid;
+    outline-offset: 2px;
+    transition: outline 0.3s;
+}
+
+#add_manual_course {
+    background-color: rgb(0, 146, 63);
+    color: white;
+    width: fit-content;
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+    font-family: Segoe UI Semibold;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#response_message {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    border: 1px solid black;
+    z-index: 1000;
+    text-align: center;
+}
+
+#form_label {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    bottom: 0%;
+    background-color: rgb(232, 233, 233);
+    height: auto;
+    align-items: center;
+    font-size: 13px;
+    z-index: 99;
+}
+
+.footer-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+    align-items: center;
+    z-index: 50;
+}
+
+#footer_content {
+    width: auto;
+    padding: 0px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.footer_link {
+    text-decoration: none;
+    color:rgba(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    line-height: 14px;
+}
+
+@media (max-width: 400px) {
+    .footer {
+    width: 90%;
+    left: 5%;
+    gap: 12px;
+    }
+}

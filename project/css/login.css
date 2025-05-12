@@ -1,0 +1,239 @@
+body {
+    margin: 0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    width: 100vw; 
+}
+
+.Webcontainer {
+    display: block;
+    margin: auto;
+}
+
+#brand {
+    margin-left: 10%;
+    margin-top: 7%;
+    padding: 4px;
+}
+
+.form_box{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    margin: 10px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 8px;
+}
+
+.forgot-password {
+    font-weight: 600;
+    margin: auto;
+    margin-top: 12px;
+    font-size: 14px;
+    color: rgb(0, 146, 63);
+    text-decoration: solid;
+    cursor: pointer;
+}
+
+#login-text {
+    display: flex;
+    align-items: flex-start;
+    margin: 12% auto;
+    padding-bottom: 8px;
+    font-weight: 600;
+    font-size: 28px;
+    border-bottom: 2px dotted #888;
+    width: 310px;
+}
+
+a {
+    text-decoration: solid;
+    color: rgb(0, 146, 63);
+}
+
+a:visited {
+    color: rgb(0, 146, 63);
+}
+
+.select_form {
+    height: auto;
+    width: auto;
+    border-bottom: #b6b6b6 2px solid;
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin:  auto 10px;
+    margin-bottom: 20px;
+}
+
+.login_form_bar {
+    margin: 0px;
+    width: auto;
+    cursor: pointer;
+    padding: 0px 15.7%;
+}
+
+.login_form_bar.active {
+    border-bottom: green 3px solid; 
+    font-weight: 700;
+}
+
+.login_form_bar:hover {
+    background-color: rgb(237, 237, 237);
+}
+
+#login_form_bar_text {
+    padding: 12px 0px;
+    margin: 0px;
+}
+
+#lecturer_login_form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    position: relative;
+}
+
+#student_login_form {
+    display: none;
+    flex-direction: column;
+    margin: 10px;
+    text-align: left;
+}
+
+
+input[type=text], input[type=password], input[type=number] {
+    width: 300px;
+    height: 30px;
+    font-family: Segoe UI;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: rgb(1, 110, 48);
+    cursor: text;
+    font-weight: 600;
+    padding: 5px;
+    margin: 8px 0px;
+    border: 1px solid rgb(0, 146, 63);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+  }
+
+#dept, #lvl, #course, #department {
+    width: 310px;
+    height: 35px;
+    font-family: Segoe UI;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: rgb(1, 110, 48);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px;
+    margin: 8px 0px;
+    border: 1px solid rgb(0, 146, 63);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+}
+
+.toggle {
+	position: absolute;
+	top: 40%;
+    left: 81%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: rgb(0, 146, 63);
+    z-index: 9999;
+	border-radius: 18px;
+	font-weight: 500;
+	width: 54px;
+	font-size: 14px;
+	height: 22px;
+	text-align: center;
+}
+
+#link-to-signup {
+    font-size: 14px; 
+    display: flex; 
+    justify-content: center;
+}
+
+button {
+    background-color: rgb(0, 146, 63);
+    color: white;
+    padding: 16px;
+    margin: 12px auto;
+    cursor: pointer;
+    width: 300px;
+    border: none;
+    height: auto;
+    font-family: Segoe UI Semibold;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(1, 110, 48);
+    color: white;
+    outline: rgb(1, 110, 48) 1px solid;
+    outline-offset: 2px;
+}
+  
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button { 
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px; 
+}
+
+@media (max-width: 769px) {
+
+    .form_box{
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        padding: 4px;
+        margin: 20% auto;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        border-radius: 8px;
+    }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/project/css/login.css">
+    <link rel="icon" type="image/ico" href="/project/images/icon.JPG">
+    <script type="text/javascript" src="/project/javascript/login.js"></script>
+    <link rel="manifest" href="/project/manifest.json" />
+</head>
+<body>
+    <div id="brand">
+        <a href="home.html">
+            <img src="/project/images/my-brand.JPG" alt="brand" width="185px" height="45px"/>
+        </a>
+    </div>
+
+    <div class="Webcontainer">
+        <div class="form_box">
+            <span id="login-text">Log in</span>
+            <div class="select_form">
+                <div class="login_form_bar" onclick="toggleForm('lecturer_login_form')">
+                    <p>Lecturer</p>
+                </div>
+                <div class="login_form_bar" onclick="toggleForm('student_login_form')">
+                    <p>Student</p>
+                </div>
+            </div>
+
+            <form id="lecturer_login_form" method="post" action="/project/login/lecturer/lecturer_login.php" onsubmit="return checkform(this.id)">
+                <input type="text" name="email" id="email" placeholder="Lecturer email address" required autocomplete="on">
+                <input type="password" name="password" id="password" placeholder="Enter password" required autocomplete="on">
+                <div id="toggleButton" class="toggle" onclick="togglePassword()">Show</div>
+                <button type="submit">Log In</button>
+                <div class="forgot-password"><a href="/project/login/lecturer/forget-password.php">Forgot password?</a></div>
+            </form>
+
+            <form id="student_login_form" method="post" action="/project/login/student/student_login.php" style="display: none;" onsubmit="return checkform(this.id)">
+                <input type="text" name="Sname" id="Sname" placeholder="Student Full Name" required autocomplete="on"> 
+                <input type="number" name="reg_no" id ="reg_no" placeholder="Student Registration Number" required autocomplete="on">
+                <button type="submit">Log In</button>
+            </form>
+
+            <p id="link-to-signup">Don't have a profile?&nbsp;<b><a style="text-decoration: none;" href="signup.html">Sign Up</a></b></p>
+        </div>
+
+        <div id="popup" style="display: none; position: fixed; top: 12%; left: 50%; transform: translateX(-50%); background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; border-radius: 8px; text-align: center;">
+            <p id="popup-message" style="margin: 0;"></p>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            const userType = urlParams.get('user_type');
+            let message = '';
+
+            if (userType === 'student') {
+                if (error === 'invalid_name') {
+                    message = 'The student name you entered is incorrect.';
+                } else if (error === 'invalid_reg_no') {
+                    message = 'The registration number you entered is incorrect.';
+                } else if (error === 'invalid_name_and_reg_no') {
+                    message = 'Both the student name and registration number are incorrect.';
+                } else if (error === 'success') {
+                    message = 'Login successful!';
+                }
+            } else if (userType === 'lecturer') {
+                if (error === 'invalid_email') {
+                    message = 'Incorrect email, please try again.';
+                } else if (error === 'invalid_password') {
+                    message = 'Incorrect password, please try again.';
+                } else if (error === 'invalid_account') {
+                    message = 'Account is not registered.';
+                } else if (error === 'success') {
+                    message = 'Login successful!';
+                }
+            }
+
+            if (message) {
+                const popup = document.getElementById('popup');
+                const popupMessage = document.getElementById('popup-message');
+                popupMessage.innerText = message;
+                popup.style.display = 'block';
+                setTimeout(() => { popup.style.display = 'none'; }, 3000);
+            }
+        };
+    </script>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+  
+</body>
+</html>

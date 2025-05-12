@@ -1,0 +1,65 @@
+body {
+    background-color: white;
+    margin: 0px;
+    width: 100%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100vw;  
+}
+
+.welcome_box {
+    text-align: center;
+    width: max-content;
+}
+
+#welcome_text {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 2;
+    text-align: center;
+    margin: 0px;
+}
+
+#welcome_img {
+    width: 264px;
+    height: 156px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  #message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: red;
+    display: none;
+  }
+
+  #reload-btn {
+    display: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  #reload-btn:hover {
+    background-color: #0056b3;
+  }

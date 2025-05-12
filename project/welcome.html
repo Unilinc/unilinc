@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="stylesheet" href="/project/css/welcome.css">
+        <link rel="icon" type="image/ico" href="/project/images/icon.JPG">
+        <link rel="manifest" href="/project/manifest.json" />
+    </head>
+    <body>
+        <div class="welcome">
+            <div id="message">No internet connection</div>
+            <a id="reload-btn" href="">Reload</a>
+            
+            <div class="welcome_box">
+                <div class="welcome_img_contain">
+                    <img id="welcome_img" src="/project/images/logo.jpg" alt="Brand logo"/>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="/project/javascript/welcome.js"></script>
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function () {
+            navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+          });
+        }
+      </script>      
+</html>

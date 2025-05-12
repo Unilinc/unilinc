@@ -1,0 +1,349 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+html::-webkit-scrollbar {
+    height: 2px;
+    width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #ffffff; /* Background color of the scrollbar track */
+    border-radius: 2px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(0, 146, 63); /* Color of the scrollbar handle */
+    border-radius: 2px; /* Rounds the scrollbar handle */
+}
+
+html::-webkit-scrollbar-button {
+    display: none; /* Hides the scrollbar arrows */
+}
+
+body {
+    margin: 0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    transition: opacity 0.3s ease;
+}
+
+#logo {
+    width: 50px; 
+    margin-bottom: 0px;
+}
+
+#loader-bar {
+    width: 8%; 
+    height: 5px;
+    background: rgb(255, 255, 255); 
+    position: relative;
+    overflow: hidden;
+}
+
+#loader-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background: green; 
+    animation: backAndForth 2s infinite ease-in-out;
+}
+
+@keyframes backAndForth {
+    0% {
+        left: -10%;
+    }
+    50% {
+        left: 90%; 
+    }
+    100% {
+        left: -10%; 
+    }
+}
+
+.Webcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100vw;
+    margin: auto;
+}
+
+.form_box{
+    width: auto;
+    padding: 4px;
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: rgb(206, 206, 206) 0px 0px 8px 2px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    border: 1px solid black;
+    z-index: 1000;
+    text-align: center;
+}
+.popup.show {
+    display: block;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+    position: fixed;
+    top: 0;
+    background-color: rgb(232, 233, 233);
+    width: 100%;
+    height: auto;
+    z-index: 99;
+}
+
+#navbar_img {
+    display: flex; 
+    align-items: center;
+}
+
+#navbar_img img {
+    height: 42px;
+    width: auto;
+    margin-left: 20%;
+}
+
+#nav-menu {
+    display: flex;
+    align-items: center; 
+    margin-right: 10%;
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#menu-options {
+    position: absolute;
+    right: 22px;
+    top: 50px; 
+    height: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 180px;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+    transform: translateX(110%); 
+    transition: transform 0.3s ease; 
+}
+
+#menu-options a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#menu-options a:hover {
+    background-color: #f0f0f0;
+}
+
+#menu-options a:last-child {
+    border-bottom: none;
+}
+
+#signup_form {
+    display: none;
+    flex-direction: column;
+    margin: 10px;
+    text-align: left;
+}
+
+input[type=text], input[type=password], input[type=number] {
+    width: 300px;
+    height: 30px;
+    font-family: Segoe UI;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: rgb(1, 110, 48);
+    cursor: text;
+    font-weight: 600;
+    padding: 5px;
+    margin: 8px 0px;
+    border: 1px solid rgb(0, 146, 63);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+  }
+
+#dept, #lvl, #course, #department {
+    width: 310px;
+    height: 35px;
+    font-family: Segoe UI;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: rgb(1, 110, 48);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px;
+    margin: 8px 0px;
+    border: 1px solid rgb(0, 146, 63);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+}
+
+button {
+    background-color: rgb(0, 146, 63);
+    color: white;
+    padding: 12px;
+    margin: 12px auto;
+    cursor: pointer;
+    width: max-content;
+    border: none;
+    height: auto;
+    font-family: Segoe UI Semibold;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background-color: rgb(1, 110, 48);
+    color: white;
+  }
+
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    display: flex;
+    justify-content: center;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 28px;
+    width: 28px;
+}
+
+.close:hover {
+    border: 1px solid rgb(1, 110, 48);
+    border-radius: 4px;
+}
+
+.footer-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+    align-items: center;
+    z-index: 50;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    bottom: 0%;
+    background-color: rgb(232, 233, 233);
+    height: auto;
+    align-items: center;
+    font-size: 13px;
+    z-index: 99;
+}
+
+#footer_content {
+    width: auto;
+    padding: 0px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.footer_link {
+    text-decoration: none;
+    color: rgba(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    line-height: 14px;
+}
+
+@media (max-width: 400px) {
+    .footer {
+    width: 90%;
+    left: 5%;
+    gap: 12px;
+    }
+}

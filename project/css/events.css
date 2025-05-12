@@ -1,0 +1,417 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+html::-webkit-scrollbar {
+    height: 2px;
+    width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #ffffff; /* Background color of the scrollbar track */
+    border-radius: 2px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(0, 146, 63); /* Color of the scrollbar handle */
+    border-radius: 2px; /* Rounds the scrollbar handle */
+}
+
+html::-webkit-scrollbar-button {
+    display: none; /* Hides the scrollbar arrows */
+}
+
+body {
+    margin: auto;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: auto;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    transition: opacity 0.3s ease;
+}
+
+#logo {
+    width: 50px; 
+    margin-bottom: 0px;
+}
+
+#loader-bar {
+    width: 8%; 
+    height: 5px;
+    background: rgb(255, 255, 255); 
+    position: relative;
+    overflow: hidden;
+}
+
+#loader-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background: green; 
+    animation: backAndForth 2s infinite ease-in-out;
+}
+
+@keyframes backAndForth {
+    0% {
+        left: -10%;
+    }
+    50% {
+        left: 90%; 
+    }
+    100% {
+        left: -10%; 
+    }
+}
+
+.Webcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding-top: 60px;
+    margin: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+    position: fixed;
+    top: 0;
+    background-color: rgb(232, 233, 233);
+    width: 100%;
+    height: auto;
+    z-index: 99;
+}
+
+#navbar_img {
+    display: flex; 
+    align-items: center;
+}
+
+#navbar_img img {
+    height: 42px;
+    width: auto;
+    margin-left: 20%;
+}
+
+#nav-menu {
+    display: flex;
+    align-items: center; 
+    margin-right: 10%;
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#menu-options {
+    position: absolute;
+    right: 22px;
+    top: 50px; 
+    height: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 180px;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+    transform: translateX(110%); 
+    transition: transform 0.3s ease; 
+}
+
+#menu-options a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#menu-options a:hover {
+    background-color: #f0f0f0;
+}
+
+#menu-options a:last-child {
+    border-bottom: none;
+}
+
+.filter-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    width: 75%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-color: rgb(0, 146, 63) #ffffff;
+    padding: 24px 5px;
+}
+
+/* For Webkit-based browsers (Chrome, Edge, Safari) */
+.filter-bar::-webkit-scrollbar {
+    height: 2px; /* Adjusts the scrollbar height */
+}
+
+.filter-bar::-webkit-scrollbar-track {
+    background: #ffffff; /* Background color of the scrollbar track */
+    border-radius: 2px; /* Rounds the track edges */
+}
+
+.filter-bar::-webkit-scrollbar-thumb {
+    background: rgb(0, 146, 63); /* Color of the scrollbar handle */
+    border-radius: 2px; /* Rounds the scrollbar handle */
+}
+
+.filter-bar::-webkit-scrollbar-button {
+    display: none; /* Hides the scrollbar arrows */
+}
+
+.filter-bar div.active {
+    background-color: rgb(0, 146, 63);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    outline: 2px solid rgb(0, 146, 63);
+    outline-offset: 2px;
+}
+
+#academics, #socials, #music, #sports, #fashion, #lifestyle, #travels, #health, #news, #trending {
+    min-width: 72px;
+    font-size: 14px;
+    padding: 12px;
+    display: block;
+    color: white;
+    outline: 2px solid rgb(0, 146, 63);
+    background-color: rgb(0, 146, 63);
+    border-radius: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.event-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    width: 80%;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.event-body-content {
+    width: auto;
+    margin: 24px 0px;
+    padding: 8px 8px 16px 8px;
+    border-radius: 4px;
+    height: auto;
+    box-shadow: rgb(210, 210, 210) 0px 0px 4px 0.2px;
+}
+
+.img-box {
+    text-align: center;
+}
+
+#content {
+    width: auto;
+    margin: 24px 0px;
+    padding: 8px 8px 16px 8px;
+    border-radius: 4px;
+    height: auto;
+    text-align: left;
+}
+
+.event-content {
+    position: fixed;
+    bottom: -100vh; /* Start off-screen */
+    height: 75%;
+    overflow: auto;
+    background: white;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+    display: block;
+    padding: 20px;
+}
+
+.event-content::-webkit-scrollbar {
+    height: 2px;
+    width: 5px;
+}
+
+.event-content::-webkit-scrollbar-track {
+    background: #ffffff; /* Background color of the scrollbar track */
+    border-radius: 2px;
+}
+
+.event-content::-webkit-scrollbar-thumb {
+    background: rgb(0, 146, 63); /* Color of the scrollbar handle */
+    border-radius: 2px; /* Rounds the scrollbar handle */
+}
+
+.event-content::-webkit-scrollbar-button {
+    display: none; /* Hides the scrollbar arrows */
+}
+
+/* Slide-in effect */
+.event-content.slide-in {
+    display: block;
+    transform: translate(-5%, -140%);
+}
+
+/* Slide-out effect */
+.event-content.slide-out {
+    transform: translateY(100%);
+}
+
+#nav-back-button {
+    cursor: pointer;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    width: 24px;
+    float: inline-end;
+    margin-bottom: 10px;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+#nav-back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    width: fit-content;
+}
+
+#arrow {
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.image-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#img-head {
+    width: 320px;
+    height: auto;
+}
+
+button {
+    background-color: rgb(0, 146, 63);
+    color: white;
+    padding: 8px;
+    margin: 6px 12px;
+    cursor: pointer;
+    border: none;
+    font-family: Segoe UI Semibold;
+    font-size: 14px;
+    border-radius: 5px;
+    float: right;
+  }
+
+  button:hover {
+    background-color: rgb(1, 110, 48);
+    color: white;
+    outline: rgb(1, 110, 48) 2px solid;
+    outline-offset: 2px;
+    transition: outline 0.3s;
+  }
+
+  .footer-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+    align-items: center;
+    z-index: 50;
+}
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin: auto;
+    position: fixed;
+    bottom: 0%;
+    background-color: rgb(232, 233, 233);
+    height: auto;
+    align-items: center;
+    font-size: 13px;
+    z-index: 99;
+}
+
+#footer_content {
+    width: auto;
+    padding: 0px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.footer_link {
+    text-decoration: none;
+    color:rgba(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    line-height: 14px;
+}
+
+@media (max-width: 420px) {
+    .footer {
+    width: 90%;
+    left: 5%;
+    gap: 12px;
+    }
+
+    #img-head {
+        width: 240px;
+        height: auto;
+    }
+
+    #academics, #socials, #music, #sports, #fashion, #lifestyle, #travels, #health, #news, #trending {
+        min-width: 64px;
+        font-size: 12px;
+        padding: 8px;
+        border-radius: 24px;
+    }
+}
